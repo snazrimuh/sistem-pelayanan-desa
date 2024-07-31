@@ -32,4 +32,6 @@ Route::middleware('auth:admin')->group(function () {
     Route::get('admin/pelayanan', [AdminController::class, 'index'])->name('admin.pelayanan.index');
     Route::delete('admin/pelayanan/{id}', [AdminController::class, 'destroy'])->name('admin.pelayanan.destroy');
     Route::get('admin/pelayanan/{id}', [AdminController::class, 'show'])->name('admin.pelayanan.show');
+    Route::get('admin/pelayanan/{id}/cetak', [AdminController::class, 'cetakPDF'])->name('admin.pelayanan.cetak');
+
 });

@@ -6,7 +6,7 @@
         <div class="col-md-8">
             <div class="card shadow">
                 <div class="card-body p-4">
-                    <h5 class="card-title text-center">{{ __('Form Pelayanan Desa') }}</h5>
+                    <h5 class="card-title text-center"><strong>{{ __('Form Pelayanan Desa') }}</strong></h5>
                     <p class="text-center">Isi form untuk pengajuan pelayanan desa</p>
                     @if ($errors->any())
                     <div class="alert alert-danger">

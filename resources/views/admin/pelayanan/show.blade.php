@@ -63,6 +63,8 @@
                         <td>{{ $pelayanan->created_at->format('d-m-Y') }}</td>
                     </tr>
                 </table>
+                <a href="{{ route('admin.pelayanan.cetak', $pelayanan->id) }}"
+                    class="btn btn-outline-primary btn-sm mx-1">{{ __('Cetak PDF') }}</a>
             </div>
         </div>
     </div>

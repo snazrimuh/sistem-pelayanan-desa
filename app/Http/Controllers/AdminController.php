@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pelayanan;
+use Barryvdh\DomPDF\Facade\Pdf;
+
 
 class AdminController extends Controller
 {
@@ -26,5 +28,15 @@ class AdminController extends Controller
     {
         $pelayanan = Pelayanan::findOrFail($id);
         return view('admin.pelayanan.show', compact('pelayanan'));
+    }
+
+    public function cetakPDF($id)
+    {
+        $image = base64_encode(file_get_contents(public_path('/images/sukoharjo.png')));
+        $pelayanan = Pelayanan::find($id);
+
+        $pdf = Pdf::loadView('admin.pelayanan.pdf', compact('pelayanan', 'image'));
+
+        return $pdf->download('detail_pengajuan_pelayanan.pdf');
     }
 }
