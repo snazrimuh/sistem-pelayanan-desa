@@ -35,8 +35,12 @@ class AdminController extends Controller
         $image = base64_encode(file_get_contents(public_path('/images/sukoharjo.png')));
         $pelayanan = Pelayanan::find($id);
 
-        $pdf = Pdf::loadView('admin.pelayanan.pdf', compact('pelayanan', 'image'));
-
-        return $pdf->download('detail_pengajuan_pelayanan.pdf');
+        if ($pelayanan) {
+            $pdf = Pdf::loadView('admin.pelayanan.pdf', compact('pelayanan', 'image'));
+            $fileName = 'cetak_pengajuan_' . preg_replace('/\s+/', '_', $pelayanan->nama) . '.pdf';
+            return $pdf->download($fileName);
+        } else {
+            return redirect()->route('admin.pelayanan.index')->with('error', 'Data tidak ditemukan.');
+        }
     }
 }

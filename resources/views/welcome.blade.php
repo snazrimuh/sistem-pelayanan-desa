@@ -196,12 +196,6 @@
 
                         <div class="info-wrap">
                             <div class="row">
-                                <div class="col-lg-4 info">
-                                    <i class="bi bi-geo-alt"></i>
-                                    <h4>Alamat:</h4>
-                                    <p>Desa Ngombakan, Kec. Polokarto, Kabupaten Sukoharjo, Jawa Tengah 57555</p>
-                                </div>
-
                                 <div class="col-lg-4 info mt-4 mt-lg-0">
                                     <i class="bi bi-envelope"></i>
                                     <h4>Email:</h4>
@@ -212,6 +206,11 @@
                                     <i class="bi bi-phone"></i>
                                     <h4>Telp:</h4>
                                     <p>(0271) 610014</p>
+                                </div>
+                                <div class="col-lg-4 info mt-4 mt-lg-0">
+                                    <i class="bi bi-whatsapp"></i>
+                                    <h4>WhatsApp:</h4>
+                                    <p><a href="https://wa.me/6282135252100">+62 821-3525-2100</a></p>
                                 </div>
                             </div>
                         </div>

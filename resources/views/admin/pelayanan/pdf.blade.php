@@ -111,10 +111,11 @@
         <p>33 11 072004</p>
 
         <p style="text-align: center; margin-top: 20px;">KETERANGAN</p>
-        <p style="text-align: center;">SURAT ________________________</p>
+        <p style="text-align: center; margin-right: 50px;">SURAT _____________________</p>
         <p style="text-align: center;">PENGANTAR</p>
         <p style="text-align: center; margin-bottom: 30px;">Nomor:
-            &nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;</p>
+            {{ $pelayanan->kode_pelayanan }}/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/{{ $pelayanan->created_at->format('Y') }}
+        </p>
 
         <p>Yang bertanda tangan di bawah ini Kami Kepala Desa Ngombakan Kecamatan Polokarto Kabupaten Sukoharjo,
             menerangkan bahwa:</p>
@@ -123,12 +124,17 @@
             <tr>
                 <td>Nama</td>
                 <td>:</td>
-                <td>{{ $pelayanan->nama }}</td>
+                <td><b>{{ $pelayanan->nama }}</b></td>
             </tr>
             <tr>
                 <td>Tempat Tanggal Lahir</td>
                 <td>:</td>
                 <td>{{ $pelayanan->tempat_tinggal }}</td>
+            </tr>
+            <tr>
+                <td>Jenis Kelamin</td>
+                <td>:</td>
+                <td>{{ $pelayanan->jenis_kelamin }}</td>
             </tr>
             <tr>
                 <td>Pekerjaan</td>
@@ -151,9 +157,14 @@
                 <td>{{ $pelayanan->keperluan }}</td>
             </tr>
             <tr>
-                <td>Tujuan</td>
+                <td>Instansi Tujuan</td>
                 <td>:</td>
                 <td>{{ $pelayanan->tujuan }}</td>
+            </tr>
+            <tr>
+                <td>Berlaku Mulai</td>
+                <td>:</td>
+                <td>{{ $pelayanan->created_at->format('d-m-Y') }} s/d Selesai</td>
             </tr>
             <tr>
                 <td>Keterangan Lain-Lain</td>
@@ -170,18 +181,18 @@
                     <p> </p>
                 </td>
                 <td class="right-signature">
-                    <p>Tempat, tanggal, bulan, tahun</p>
+                    <p>Ngombakan, {{ $pelayanan->created_at->format('d-m-Y') }}</p>
                 </td>
             </tr>
             <tr>
                 <td class="left-signature">
-                    <p>Tanda tangan pemegang</p>
-                    <br><br><br>
+                    <p>Tanda Tangan Pemegang</p>
+                    <br><br><br><br>
                     <p>____________________</p>
                 </td>
                 <td class="right-signature">
                     <p>Kepala Desa Ngombakan</p>
-                    <br><br><br>
+                    <br><br><br><br>
                     <p>____________________</p>
                 </td>
             </tr>

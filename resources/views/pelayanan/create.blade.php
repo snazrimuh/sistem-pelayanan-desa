@@ -25,23 +25,25 @@
                     <form action="{{ route('pelayanan.store') }}" method="POST">
                         @csrf
                         <div class="form-group mb-3">
-                            <label for="jenis_pelayanan">{{ __('Jenis Pelayanan') }}</label>
-                            <select name="jenis_pelayanan" id="jenis_pelayanan" class="form-select mt-2" required>
+                            <label for="jenis_kode_pelayanan">{{ __('Jenis Pelayanan') }}</label>
+                            <select name="jenis_kode_pelayanan" id="jenis_kode_pelayanan" class="form-select mt-2"
+                                required>
                                 <option value="">{{ __('Pilih Jenis Pelayanan') }}</option>
-                                <option value="474 - Pembuatan KTP">{{ __('Pembuatan KTP') }}</option>
-                                <option value="560 - Pembuatan SKCK">{{ __('Pembuatan SKCK') }}</option>
-                                <option value="440 - Pembuatan KIS/BPJS">{{ __('Pembuatan KIS/BPJS') }}</option>
-                                <option value="474.3 - Surat Kematian">{{ __('Surat Kematian') }}</option>
-                                <option value="474.1 - Surat Kelahiran">{{ __('Surat Kelahiran') }}</option>
-                                <option value="474 - Surat Izin Kerja">{{ __('Surat Izin Kerja') }}</option>
-                                <option value="420 - Pembuatan KIP/Pendidikan">{{ __('Pembuatan KIP/Pendidikan') }}
+                                <option value="Pembuatan KTP|474">{{ __('Pembuatan KTP') }}</option>
+                                <option value="Pembuatan SKCK|560">{{ __('Pembuatan SKCK') }}</option>
+                                <option value="Pembuatan KIS/BPJS|440">{{ __('Pembuatan KIS/BPJS') }}</option>
+                                <option value="Surat Kematian|474.3">{{ __('Surat Kematian') }}</option>
+                                <option value="Surat Kelahiran|474.1">{{ __('Surat Kelahiran') }}</option>
+                                <option value="Surat Izin Kerja|474">{{ __('Surat Izin Kerja') }}</option>
+                                <option value="Pembuatan KIP/Pendidikan|420">{{ __('Pembuatan KIP/Pendidikan') }}
                                 </option>
-                                <option value="580 - Surat Ket. Usaha/Bank">{{ __('Surat Ket. Usaha/Bank') }}</option>
-                                <option value="475 - Surat Pindah Penduduk">{{ __('Surat Pindah Penduduk') }}</option>
-                                <option value="474 - Surat Kehilangan">{{ __('Surat Kehilangan') }}</option>
-                                <option value="503 - Surat Ket. NPWP">{{ __('Surat Ket. NPWP') }}</option>
-                                <option value="460 - Surat Sosial Kesra">{{ __('Surat Sosial Kesra') }}</option>
-                                <option value="412 - BPUM/UMKM">{{ __('BPUM/UMKM') }}</option>
+                                <option value="Surat Ket. Usaha/Bank|580">{{ __('Surat Ket. Usaha/Bank') }}</option>
+                                <option value="Surat Pindah Penduduk|475">{{ __('Surat Pindah Penduduk') }}</option>
+                                <option value="Surat Kehilangan|474">{{ __('Surat Kehilangan') }}</option>
+                                <option value="Surat Ket. NPWP|503">{{ __('Surat Ket. NPWP') }}</option>
+                                <option value="Surat Sosial Kesra|460">{{ __('Surat Sosial Kesra') }}</option>
+                                <option value="BPUM/UMKM|412">{{ __('BPUM/UMKM') }}</option>
+                                <option value="Surat Ket. lainnya|___">{{ __('Surat Ket. Lainnya') }}</option>
                             </select>
                         </div>
                         <div class="form-group mb-3">
@@ -52,6 +54,15 @@
                             <label for="nik">{{ __('NIK') }}</label>
                             <input type="text" name="nik" id="nik" class="form-control mt-2" required>
                         </div>
+                        <div class="form-group mb-3">
+                            <label for="jenis_kelamin">{{ __('Jenis Kelamin') }}</label>
+                            <select name="jenis_kelamin" id="jenis_kelamin" class="form-control mt-2" required>
+                                <option value="">Pilih Jenis Kelamin</option>
+                                <option value="Laki-Laki">Laki-Laki</option>
+                                <option value="Perempuan">Perempuan</option>
+                            </select>
+                        </div>
+
                         <div class="form-group mb-3">
                             <label for="tempat_tgl_lahir">{{ __('Tempat, Tanggal Lahir') }}</label>
                             <input type="text" name="tempat_tgl_lahir" id="tempat_tgl_lahir" class="form-control mt-2"

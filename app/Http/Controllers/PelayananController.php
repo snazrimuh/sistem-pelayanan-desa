@@ -15,20 +15,39 @@ class PelayananController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'jenis_pelayanan' => 'required',
-            'nama' => 'required',
-            'nik' => 'required',
-            'tempat_tgl_lahir' => 'required',
-            'no_wa' => 'required',
-            'pekerjaan' => 'required',
-            'tempat_tinggal' => 'required',
-            'keperluan' => 'required',
-            'tujuan' => 'required',
-            'keterangan_lain' => 'nullable',
+            'jenis_kode_pelayanan' => 'required',
+            'nama' => 'required|string|max:255',
+            'nik' => 'required|string|max:255',
+            'jenis_kelamin' => 'required|in:Laki-Laki,Perempuan',
+            'tempat_tgl_lahir' => 'required|string|max:255',
+            'no_wa' => 'required|string|max:255',
+            'pekerjaan' => 'required|string|max:255',
+            'tempat_tinggal' => 'required|string|max:255',
+            'keperluan' => 'required|string|max:255',
+            'tujuan' => 'required|string|max:255',
+            'keterangan_lain' => 'nullable|string',
         ]);
 
-        Pelayanan::create($request->all());
+        list($jenis_pelayanan, $kode_pelayanan) = explode('|', $request->jenis_kode_pelayanan);
 
-        return redirect()->route('pelayanan.create')->with('success', 'Pengajuan berhasil ditambahkan.');
+        $pelayanan = new Pelayanan([
+            'jenis_pelayanan' => $jenis_pelayanan,
+            'kode_pelayanan' => $kode_pelayanan,
+            'nama' => $request->nama,
+            'nik' => $request->nik,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'tempat_tgl_lahir' => $request->tempat_tgl_lahir,
+            'no_wa' => $request->no_wa,
+            'pekerjaan' => $request->pekerjaan,
+            'tempat_tinggal' => $request->tempat_tinggal,
+            'keperluan' => $request->keperluan,
+            'tujuan' => $request->tujuan,
+            'keterangan_lain' => $request->keterangan_lain,
+        ]);
+
+        $pelayanan->save();
+
+        return redirect()->route('pelayanan.create')->with('success', 'Pengajuan berhasil ditambahkan, Silakan tunggu admin menghubungi Anda');
     }
+
 }

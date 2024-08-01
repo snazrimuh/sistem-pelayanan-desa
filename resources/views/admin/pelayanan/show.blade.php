@@ -2,33 +2,43 @@
 
 @section('content')
 <div class="container-fluid">
-    <div class="container">
-        <h1 class="text-center mb-4">{{ __('Detail Pengajuan Pelayanan') }}</h1>
-
+    <div class="container" style="max-width: 800px;">
         @if (session('success'))
-        <div class="alert alert-success">
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
             {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
         @endif
 
         <div class="card shadow-sm">
-            <div class="card-body p-4">
-                <div>
-                    <a href="{{ route('admin.pelayanan.index') }}"
-                        class="btn btn-outline-primary btn-sm mx-1">{{ __('Kembali') }}</a>
+            <div class="card-body p-3">
+                <h2 class="text-center mb-4 mt-3">{{ __('Detail Pengajuan') }}</h2>
+                <div class="d-flex justify-content-between mb-3">
+                    <a href="{{ route('admin.pelayanan.index') }}" class="btn btn-primary btn-sm">
+                        {{ __('Kembali') }}
+                    </a>
                 </div>
-                <table class="table table-sm table-hover mt-3">
+
+                <table class="table table-sm table-hover mb-0">
                     <tr>
-                        <th>{{ __('Nama') }}</th>
-                        <td>{{ $pelayanan->nama }}</td>
+                        <th>{{ __('Kode Pelayanan') }}</th>
+                        <td>{{ $pelayanan->kode_pelayanan }}</td>
                     </tr>
                     <tr>
                         <th>{{ __('Jenis Pelayanan') }}</th>
                         <td>{{ $pelayanan->jenis_pelayanan }}</td>
                     </tr>
                     <tr>
+                        <th>{{ __('Nama') }}</th>
+                        <td>{{ $pelayanan->nama }}</td>
+                    </tr>
+                    <tr>
                         <th>{{ __('NIK') }}</th>
                         <td>{{ $pelayanan->nik }}</td>
+                    </tr>
+                    <tr>
+                        <th>{{ __('Jenis Kelamin') }}</th>
+                        <td>{{ $pelayanan->jenis_kelamin }}</td>
                     </tr>
                     <tr>
                         <th>{{ __('Tempat & Tanggal Lahir') }}</th>
@@ -63,8 +73,12 @@
                         <td>{{ $pelayanan->created_at->format('d-m-Y') }}</td>
                     </tr>
                 </table>
-                <a href="{{ route('admin.pelayanan.cetak', $pelayanan->id) }}"
-                    class="btn btn-outline-primary btn-sm mx-1">{{ __('Cetak PDF') }}</a>
+                <div class="d-flex justify-content-between mt-3">
+                    <a href="{{ route('admin.pelayanan.cetak', $pelayanan->id) }}" class="btn btn-outline-primary w-100"
+                        title="Cetak">
+                        <i class="bi bi-printer"></i> {{ __('Cetak PDF Surat') }}
+                    </a>
+                </div>
             </div>
         </div>
     </div>

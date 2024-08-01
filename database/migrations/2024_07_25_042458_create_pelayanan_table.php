@@ -14,15 +14,17 @@ return new class extends Migration
         Schema::create('pelayanan', function (Blueprint $table) {
             $table->id();
             $table->string('jenis_pelayanan');
+            $table->string('kode_pelayanan');
             $table->string('nama');
             $table->string('nik');
+            $table->enum('jenis_kelamin', ['Laki-Laki', 'Perempuan']);
             $table->string('tempat_tgl_lahir');
             $table->string('no_wa');
             $table->string('pekerjaan');
             $table->string('tempat_tinggal');
             $table->string('keperluan');
             $table->string('tujuan');
-            $table->text('keterangan_lain');
+            $table->text('keterangan_lain')->nullable();
             $table->timestamps();
         });
     }
