@@ -24,5 +24,6 @@ class Pelayanan extends Model
         'keperluan',
         'tujuan',
         'keterangan_lain',
+        'mengetahui',
     ];
 }

@@ -129,7 +129,7 @@
             <tr>
                 <td>Tempat Tanggal Lahir</td>
                 <td>:</td>
-                <td>{{ $pelayanan->tempat_tinggal }}</td>
+                <td>{{ $pelayanan->tempat_tgl_lahir }}</td>
             </tr>
             <tr>
                 <td>Jenis Kelamin</td>
@@ -157,7 +157,7 @@
                 <td>{{ $pelayanan->keperluan }}</td>
             </tr>
             <tr>
-                <td>Instansi Tujuan</td>
+                <td>Tujuan</td>
                 <td>:</td>
                 <td>{{ $pelayanan->tujuan }}</td>
             </tr>
@@ -191,7 +191,7 @@
                     <p>____________________</p>
                 </td>
                 <td class="right-signature">
-                    <p>Kepala Desa Ngombakan</p>
+                    <p>{{ $pelayanan->mengetahui }} Ngombakan</p>
                     <br><br><br><br>
                     <p>____________________</p>
                 </td>

@@ -72,9 +72,19 @@
                         <th>{{ __('Tanggal Pengajuan') }}</th>
                         <td>{{ $pelayanan->created_at->format('d-m-Y') }}</td>
                     </tr>
+                    <tr>
+                        <th>{{ __('Mengetahui') }}</th>
+                        <td>{{ $pelayanan->mengetahui }}</td>
+                    </tr>
                 </table>
                 <div class="d-flex justify-content-between mt-3">
-                    <a href="{{ route('admin.pelayanan.cetak', $pelayanan->id) }}" class="btn btn-outline-primary w-100"
+                    <a href="{{ route('admin.pelayanan.edit', $pelayanan->id) }}" class="btn btn-warning w-100"
+                        title="Edit">
+                        <i class="bi bi-pencil-square"></i> {{ __('Edit') }}
+                    </a>
+                </div>
+                <div class="d-flex justify-content-between mt-3">
+                    <a href="{{ route('admin.pelayanan.cetak', $pelayanan->id) }}" class="btn btn-primary w-100"
                         title="Cetak">
                         <i class="bi bi-printer"></i> {{ __('Cetak PDF Surat') }}
                     </a>

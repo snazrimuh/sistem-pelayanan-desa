@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('keperluan');
             $table->string('tujuan');
             $table->text('keterangan_lain')->nullable();
+            $table->string('mengetahui')->default('Kepala Desa');
             $table->timestamps();
         });
     }

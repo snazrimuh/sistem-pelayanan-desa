@@ -14,6 +14,7 @@ Route::post('/pelayanan/store', [PelayananController::class, 'store'])->name('pe
 use App\Http\Controllers\AuthController;
 
 Route::get('admin/login', [AuthController::class, 'showLoginForm'])->name('admin.login');
+Route::get('admin/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('admin/login', [AuthController::class, 'login'])->name('admin.login');
 Route::post('admin/logout', [AuthController::class, 'logout'])->name('admin.logout');
 // Route::get('admin/register', [AuthController::class, 'showRegisterForm'])->name('admin.register');
@@ -33,5 +34,6 @@ Route::middleware('auth:admin')->group(function () {
     Route::delete('admin/pelayanan/{id}', [AdminController::class, 'destroy'])->name('admin.pelayanan.destroy');
     Route::get('admin/pelayanan/{id}', [AdminController::class, 'show'])->name('admin.pelayanan.show');
     Route::get('admin/pelayanan/{id}/cetak', [AdminController::class, 'cetakPDF'])->name('admin.pelayanan.cetak');
-
+    Route::get('admin/pelayanan/{id}/edit', [AdminController::class, 'edit'])->name('admin.pelayanan.edit');
+    Route::put('admin/pelayanan/{id}', [AdminController::class, 'update'])->name('admin.pelayanan.update');
 });
